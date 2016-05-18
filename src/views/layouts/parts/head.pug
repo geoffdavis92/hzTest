@@ -1,0 +1,8 @@
+doctype html
+head
+	title= pageTitle ? pageTitle : 'Horizon Test'
+	script(src="/horizon/horizon.js")
+	script(src="js/react.js")
+	script(src="js/react-dom.js")
+body(class= pageClass ? 'page-' + pageClass : '')
+	block page
