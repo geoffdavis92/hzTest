@@ -33,15 +33,15 @@ var horizon = Horizon(),
 	displayName: "ItemList",
 
 	render: function render() {
-		var posts = chat.fetch().subscribe(function (item) {
-			item.map(function () {
-				return React.createElement(ItemComponent, { src: item });
-			});
-		});
+		var posts = [];
 		return React.createElement(
 			"ul",
 			null,
-			posts
+			React.createElement(
+				"li",
+				null,
+				"beefchain"
+			)
 		);
 	}
 });
@@ -56,11 +56,11 @@ chat.store(message);
 
 chat.fetch().subscribe(function (item) {
 	item.forEach(function (item) {
-		console.log(item);
+		// console.log(item)
 		window.Item = item;
 	});
 }, function (err) {
 	return console.log(err);
 });
 
-ReactDOM.render(React.createElement(ItemList, null), document.querySelector('#app'));
+ReactDOM.render(React.createElement(ItemList, null), document.querySelector("#app"));

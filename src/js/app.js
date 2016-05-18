@@ -15,16 +15,10 @@ const horizon = Horizon(),
 	}),
 	ItemList = React.createClass({
 		render: function() {
-			const posts = chat.fetch().subscribe((item) => {
-				item.map(function() {
-					return (
-						<ItemComponent src={item} />
-					)
-				})
-			})
+			const posts = []
 			return (
 				<ul>
-					{posts}
+					<li>beefchain</li>
 				</ul>
 			)
 		}
@@ -41,11 +35,11 @@ chat.store(message)
 chat.fetch().subscribe(
 	(item) => {
 		item.forEach((item) => {
-			console.log(item)
+			// console.log(item)
 			window.Item = item
 		})
 	},
 	(err) => console.log(err)
 )
 
-ReactDOM.render(<ItemList />, document.querySelector('#app'))
+ReactDOM.render(<ItemList/>,document.querySelector(`#app`))
